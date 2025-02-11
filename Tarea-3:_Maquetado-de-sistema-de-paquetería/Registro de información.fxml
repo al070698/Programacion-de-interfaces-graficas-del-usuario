@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="109.0" layoutY="75.0" text="Remitente:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="113.0" text="Nombre:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="151.0" text="Calle:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="185.0" text="Ciudad:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="224.0" text="Municipio:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="263.0" text="Estado:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="115.0" layoutY="111.0" />
+      <TextField layoutX="115.0" layoutY="149.0" />
+      <TextField layoutX="115.0" layoutY="183.0" />
+      <TextField layoutX="116.0" layoutY="222.0" />
+      <TextField layoutX="116.0" layoutY="261.0" />
+      <Label layoutX="380.0" layoutY="75.0" text="Destinatario:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="310.0" layoutY="113.0" text="Domicilio:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="393.0" layoutY="111.0" />
+      <Label layoutX="312.0" layoutY="151.0" text="Telefono:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="393.0" layoutY="149.0" />
+      <Label layoutX="313.0" layoutY="185.0" text="Correo electrónico:">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="450.0" layoutY="183.0" prefHeight="25.0" prefWidth="126.0" />
+      <Button layoutX="253.0" layoutY="326.0" mnemonicParsing="false" text="Confirmar.">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="195.0" layoutY="25.0" text="Registra tu información:">
+         <font>
+            <Font name="Comic Sans MS" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@remitente.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="502.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@destinatario.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

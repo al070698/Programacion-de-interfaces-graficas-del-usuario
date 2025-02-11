@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="20.0" layoutY="46.0" prefHeight="22.0" prefWidth="180.0" text="El envío fue realizado con">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="69.0" layoutY="96.0" mnemonicParsing="false" text="Aceptar.">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="43.0" fitWidth="39.0" layoutX="88.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@palomita.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="67.0" layoutY="68.0" prefHeight="22.0" prefWidth="81.0" text="éxito.">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
