@@ -56,7 +56,7 @@
          </font>
       </Label>
       <TextField layoutX="393.0" layoutY="111.0" />
-      <Label layoutX="312.0" layoutY="151.0" text="Telefono:">
+      <Label layoutX="312.0" layoutY="151.0" text="Teléfono:">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
@@ -80,12 +80,12 @@
       </Label>
       <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@remitente.png" />
+            <Image url="@../remitente.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="502.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@destinatario.jpg" />
+            <Image url="@../destinatario.jpg" />
          </image>
       </ImageView>
    </children>
