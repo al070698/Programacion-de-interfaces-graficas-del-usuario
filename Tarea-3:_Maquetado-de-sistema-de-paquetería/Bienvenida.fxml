@@ -14,12 +14,12 @@
             <Font name="Comic Sans MS" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="12.0" layoutY="173.0" prefHeight="28.0" prefWidth="576.0" text=" de diferentes paqueterías para tus envíos, acorde a como se">
+      <Label layoutX="21.0" layoutY="172.0" prefHeight="28.0" prefWidth="558.0" text=" de diferentes paqueterías para tus envíos, y seleccionar la">
          <font>
             <Font name="Comic Sans MS" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="176.0" layoutY="215.0" prefHeight="28.0" prefWidth="247.0" text="adapten tus necesidades.">
+      <Label layoutX="176.0" layoutY="214.0" prefHeight="28.0" prefWidth="247.0" text="que sea de tu preferencia.">
          <font>
             <Font name="Comic Sans MS" size="20.0" />
          </font>
