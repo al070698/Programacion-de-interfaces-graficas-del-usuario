@@ -14,7 +14,7 @@
             <Font name="Comic Sans MS" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="172.0" prefHeight="28.0" prefWidth="552.0" text=" de diferentes paqueterías para tus envíos y seleccionar la">
+      <Label layoutX="24.0" layoutY="172.0" prefHeight="28.0" prefWidth="552.0" text=" de diferentes paqueterías para tus envíos y seleccionar la">
          <font>
             <Font name="Comic Sans MS" size="20.0" />
          </font>
