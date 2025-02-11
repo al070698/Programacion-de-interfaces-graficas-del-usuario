@@ -26,7 +26,7 @@
       </Label>
       <ImageView fitHeight="121.0" fitWidth="172.0" layoutX="240.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@envios.png" />
+            <Image url="@../envios.png" />
          </image>
       </ImageView>
       <Button layoutX="284.0" layoutY="308.0" mnemonicParsing="false" text="OK." />
