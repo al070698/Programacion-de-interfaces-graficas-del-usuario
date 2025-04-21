@@ -1,0 +1,768 @@
+/* Estilos generales y variables */
+:root {
+    --color-primary: #5a9bd5;      /* Azul más suave */
+    --color-secondary: #7fc8a9;    /* Verde más suave */
+    --color-accent: #b39cd0;       /* Púrpura más suave */
+    --color-background: #f8f9fa;
+    --color-text: #2c3e50;
+    --color-error: #e57373;        /* Rojo más suave */
+    --color-success: #81c784;      /* Verde éxito más suave */
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+/* Mejor estilo para la cabecera del formulario */
+.form-header {
+    background: linear-gradient(135deg, #2b6cb0, #38a169);
+    margin: calc(-1 * min(8%, 30px));
+    margin-bottom: 1.25rem;
+    padding: min(5%, 20px);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Añadir un efecto de "brillo" sutil */
+.form-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    transform: rotate(-45deg);
+    pointer-events: none;
+}
+
+/* Mejorar el título */
+.form-header h1 {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Opcional: añadir un ícono decorativo */
+.form-header h1::before {
+    content: "👤";
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(14px + 0.4vw);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: min(5vw, 20px);
+    width: 100%;
+}
+
+/* Estilos del formulario */
+form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: min(8%, 30px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* Elementos del formulario */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 155, 213, 0.2);
+}
+
+/* Grupos de Radio buttons */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: min(4vw, 15px);
+    margin-bottom: 1.25rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    min-width: min(100%, 150px);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+/* Grupo para radio buttons */
+.form-group {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+/* Botones */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    flex: 1 1 min(100%, 200px);
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #4a8bc5;
+    transform: translateY(-2px);
+}
+
+input[type="reset"] {
+    background-color: #b0bec5;
+}
+
+input[type="reset"]:hover {
+    background-color: #90a4ae;
+}
+
+/* TextArea */
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Título del formulario */
+h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Animaciones y estados - Corregido para que solo se muestre en estado :invalid:not(:placeholder-shown) */
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--color-error);
+}
+
+/* Estilos específicos para el formulario de registro de persona */
+.persona-form .form-header {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    margin: calc(-1 * min(8%, 30px));
+    margin-bottom: 1.25rem;
+    padding: min(5%, 20px);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    color: white;
+}
+
+/* Estilos específicos para el formulario de tarjeta de crédito */
+.tarjeta-form {
+    background: linear-gradient(135deg, #fff, #f7f9fb);
+}
+
+.tarjeta-form .secure-badge {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--color-success);
+    font-size: 0.875rem;
+}
+
+.tarjeta-form .secure-badge::before {
+    content: "🔒";
+    margin-right: 5px;
+}
+
+/* Notificaciones de validación - Ajustado para que solo aparezca cuando se intenta enviar */
+.validation-message {
+    display: none;
+    color: var(--color-error);
+    font-size: 0.875rem;
+    margin-top: -0.9375rem;
+    margin-bottom: 0.9375rem;
+}
+
+/* Solo mostrar el mensaje de error cuando el usuario ha interactuado con el campo */
+input:invalid:not(:placeholder-shown) + .validation-message {
+    display: block;
+}
+
+/* Checkbox personalizado */
+.custom-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.custom-checkbox input {
+    margin-top: 0.1875rem;
+}
+
+/* Animación de carga */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.submitting {
+    animation: pulse 1.5s infinite;
+    pointer-events: none;
+}
+
+/* Agrega esto a tu archivo estilos-mejorados.css */
+
+/* Estilos base más fluidos */
+:root {
+    --color-primary: #5a9bd5;
+    --color-secondary: #7fc8a9;
+    --color-accent: #b39cd0;
+    --color-background: #f8f9fa;
+    --color-text: #2c3e50;
+    --color-error: #e57373;
+    --color-success: #81c784;
+    --border-radius: clamp(4px, 0.5vw, 8px);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+    --padding-container: clamp(15px, 5vw, 30px);
+    --form-width: min(100%, 800px);
+}
+
+body {
+    padding: var(--padding-container);
+}
+
+/* Formulario fluido */
+form {
+    width: var(--form-width);
+    padding: var(--padding-container);
+}
+
+h1 {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+}
+
+/* Estilos suaves para la tabla de tarjetas */
+table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Espacio entre filas */
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Cabecera con gradiente suave */
+table th {
+    background: linear-gradient(135deg, rgba(106, 152, 201, 0.8), rgba(143, 214, 181, 0.8));
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 500;
+    border: none;
+    position: relative;
+}
+
+/* Quitar bordes de celdas */
+table td {
+    padding: 14px 16px;
+    border: none;
+    background-color: white;
+    position: relative;
+}
+
+/* Estilos para filas enteras */
+tbody tr {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+}
+
+/* Efecto hover suave */
+tbody tr:hover {
+    background-color: rgba(240, 247, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 152, 201, 0.1);
+}
+
+/* Estilo para números de tarjeta */
+td:first-child {
+    font-family: monospace;
+    color: #666;
+}
+
+/* Esquinas redondeadas para primera y última celda de cada fila */
+tbody tr td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+tbody tr td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Estilos para la cabecera */
+thead tr th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+thead tr th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Comentarios con estilo */
+td:last-child {
+    color: #555;
+    font-style: italic;
+}
+
+/* Contraste suave para filas alternas */
+tbody tr:nth-child(even) {
+    background-color: rgba(248, 250, 252, 0.8);
+}
+
+/* Reset completo de bordes */
+table, th, td {
+    border: none !important;
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+/* Asegurarnos que las celdas no tengan bordes */
+table td, table th {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Estilo para las filas */
+tbody tr {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+
+/* Campos de formulario fluidos */
+.form-group {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    border-bottom: 1px solid #eee;
+    padding-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: clamp(0.5rem, 2vw, 0.75rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+/* Layout flexible para botones */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(5px, 2vw, 10px);
+}
+
+.form-actions button {
+    flex: 1 1 clamp(120px, 40%, 200px);
+    min-height: 2.5rem;
+}
+
+/* Grupos de radio buttons */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(5px, 2vw, 15px);
+}
+
+.radio-option {
+    flex: 1 1 clamp(100px, 30%, 150px);
+}
+
+/* Separador */
+hr {
+    margin: 2rem auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    max-width: var(--form-width);
+}
+
+/* Badge de seguridad */
+.secure-badge {
+    background-color: rgba(129, 199, 132, 0.1);
+    border-left: 3px solid var(--color-success);
+    padding: clamp(0.3rem, 2vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+    border-radius: 4px;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.8rem, 2vw, 0.875rem);
+}
+
+/* Estilos para la tabla */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--padding-container, clamp(15px, 5vw, 30px));
+}
+
+.table-container h2 {
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+    text-align: center;
+    font-size: clamp(1.25rem, 4vw, 1.8rem);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.08));
+    border-radius: var(--border-radius, 8px);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+thead {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+
+th, td {
+    padding: clamp(0.5rem, 2vw, 1rem);
+    text-align: left;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+th {
+    font-weight: 600;
+}
+
+td {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr {
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: rgba(90, 155, 213, 0.1);
+}
+
+/* Separador */
+hr {
+    margin: 2rem auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    max-width: 800px;
+}
+
+/* Variables de color más suaves */
+:root {
+    --color-primary-soft: #6a98c9;      /* Azul más suave */
+    --color-secondary-soft: #8fd6b5;    /* Verde más suave */
+    --color-text-header: #ffffff;       /* Texto blanco para contraste */
+    --gradient-soft: linear-gradient(135deg, var(--color-primary-soft), var(--color-secondary-soft));
+}
+
+/* Cabecera de la tabla más suave */
+thead {
+    background: var(--gradient-soft);
+    color: var(--color-text-header);
+    font-weight: 500;
+}
+
+/* Botones más suaves */
+.refresh-button {
+    background: var(--gradient-soft);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Título con ícono suave */
+.table-container h2 {
+    color: var(--color-primary-soft);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.table-container h2::before {
+    content: "";
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%236a98c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>');
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Celdas de la tabla con bordes más suaves */
+table td {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 16px;
+}
+
+/* Filas con hover más suave */
+tbody tr:hover {
+    background-color: rgba(106, 152, 201, 0.05);
+}
+
+/* Estilos para slider de tablas */
+.table-slider-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slider-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .slider-tab {
+    background: var(--gradient-soft);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+  
+  .table-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .table-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .slider-title {
+    color: var(--color-primary-soft);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  .slider-title::before {
+    content: "💳";
+    margin-right: 8px;
+  }
+
+  /* Flechas sólo en pantallas pequeñas */
+@media (max-width: 768px) {
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.1);
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .slider-arrow.prev { left: 10px; }
+    .slider-arrow.next { right: 10px; }
+  }
+
+  /* contenedor scrollable en X, comportamiento “suave” en móvil */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;      /* opcional, para “snap” */
+  }
+  
+  /* que la tabla ocupe al menos el ancho del contenedor */
+  .table-wrapper table {
+    min-width: 100%;
+    scroll-snap-align: start;           /* opcional, para “snap” */
+  }
+  
+  /* (opcional) ocultar scrollbar si prefieres */
+  .table-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 1) Contenedor con scroll horizontal */
+.scrollable-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 2) Barra gris de fondo */
+  .scroll-indicator {
+    height: 4px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 3) Thumb degradado que recuerda a tus tabs */
+  .scroll-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0; /* se actualizará por JS */
+    background: var(--gradient-soft);
+    border-radius: 2px;
+    transition: width 0.1s linear, left 0.1s linear;
+  }
+
+  .cards-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--color-primary-soft);
+    text-align: center;
+    margin: 1.5rem 0;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  /* Pequeño iconito decorativo */
+  .cards-title::before {
+    content: "💳 ";
+  }
+
+  /* mientras arrastras, no seleccionar texto */
+.no-select {
+    user-select: none;
+  }
+  
+  /* Hace invisible el track, dejando solo el thumb de color */
+.scroll-indicator {
+    background: transparent !important;
+  }
+
+  /* Oculta scrollbar en WebKit (Chrome, Edge, Safari) */
+.scrollable-table::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Oculta scrollbar en Firefox */
+  .scrollable-table {
+    scrollbar-width: none;
+  }
+  
+  /* Oculta scrollbar en IE 10+ */
+  .scrollable-table {
+    -ms-overflow-style: none;
+  }
+
+/* --- Contenedor que SCROLLEA, Y SOLO ÉL --- */
+.scrollable-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE10+ */
+    -ms-overflow-style: none;
+  }
+  
+  /* Chrome, Edge, Safari */
+  .scrollable-table::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  
